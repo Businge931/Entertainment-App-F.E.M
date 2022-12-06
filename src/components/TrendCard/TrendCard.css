@@ -1,0 +1,90 @@
+.tendCard {
+  position: relative;
+  color: var(--color-white);
+  font-family: var(--font-family);
+  max-width: fit-content;
+  display: inline-block;
+}
+.trendCard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.trendCard-content__about {
+  width: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.trendCard-content__about div {
+  height: 3px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--color-white);
+}
+.trendCard-content__about p {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+
+  mix-blend-mode: normal;
+  opacity: 0.75;
+}
+.trendCard-content h4 {
+  font-family: var(--font-family);
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 30px;
+
+  color: var(--color-white);
+}
+
+.tending-image {
+  height: 180px;
+  width: 420px;
+  border-radius: 10px;
+}
+.trendCard-content {
+  position: absolute;
+  top: 70%;
+  margin-left: 2rem;
+}
+
+.trendCard_bookmark {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: var(--color-bg_grey);
+  position: absolute;
+  top: 5%;
+  right: 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.trendCard-buttonContainer {
+  height: 40px;
+  width: 100px;
+  position: absolute;
+  top: 40%;
+  left: 30%;
+  background-color: #ffffff;
+  border-radius: 20px;
+  opacity: 0.25;
+  display: none;
+
+  /* display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center; */
+}
+
+/* .trendCard-buttonCon p {
+  color: #ffffff;
+  opacity: 1;
+  z-index: 1000;
+} */

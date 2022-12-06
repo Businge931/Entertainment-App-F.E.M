@@ -1,0 +1,122 @@
+[
+  {
+    "title": "The Great Lands",
+    "thumbnail": {
+      "regular": {
+        "small": "./assets/thumbnails/the-great-lands/regular/small.jpg",
+        "medium": "./assets/thumbnails/the-great-lands/regular/medium.jpg",
+        "large": "./assets/thumbnails/the-great-lands/regular/large.jpg"
+      }
+    },
+    "year": 2019,
+    "category": "Movie",
+    "rating": "E",
+    "isBookmarked": false,
+    "isTrending": false
+  },
+  {
+    "title": "Earth’s Untouched",
+    "thumbnail": {
+      "regular": {
+        "small": "./assets/thumbnails/earths-untouched/regular/small.jpg",
+        "medium": "./assets/thumbnails/earths-untouched/regular/medium.jpg",
+        "large": "./assets/thumbnails/earths-untouched/regular/large.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "18+",
+    "isBookmarked": true,
+    "isTrending": false
+  },
+  {
+    "title": "No Land Beyond",
+    "thumbnail": {
+      "regular": {
+        "small": "./assets/thumbnails/no-land-beyond/regular/small.jpg",
+        "medium": "./assets/thumbnails/no-land-beyond/regular/medium.jpg",
+        "large": "./assets/thumbnails/no-land-beyond/regular/large.jpg"
+      }
+    },
+    "year": 2019,
+    "category": "Movie",
+    "rating": "E",
+    "isBookmarked": false,
+    "isTrending": false
+  },
+  {
+    "title": "Same Answer II",
+    "thumbnail": {
+      "regular": {
+        "small": "./assets/thumbnails/same-answer-2/regular/small.jpg",
+        "medium": "./assets/thumbnails/same-answer-2/regular/medium.jpg",
+        "large": "./assets/thumbnails/same-answer-2/regular/large.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "E",
+    "isBookmarked": false,
+    "isTrending": false
+  },
+  {
+    "title": "Relentless",
+    "thumbnail": {
+      "regular": {
+        "small": "./assets/thumbnails/relentless/regular/small.jpg",
+        "medium": "./assets/thumbnails/relentless/regular/medium.jpg",
+        "large": "./assets/thumbnails/relentless/regular/large.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "PG",
+    "isBookmarked": true,
+    "isTrending": false
+  },
+  {
+    "title": "Van Life",
+    "thumbnail": {
+      "regular": {
+        "small": "./assets/thumbnails/van-life/regular/small.jpg",
+        "medium": "./assets/thumbnails/van-life/regular/medium.jpg",
+        "large": "./assets/thumbnails/van-life/regular/large.jpg"
+      }
+    },
+    "year": 2015,
+    "category": "Movie",
+    "rating": "PG",
+    "isBookmarked": false,
+    "isTrending": false
+  },
+  {
+    "title": "The Heiress",
+    "thumbnail": {
+      "regular": {
+        "small": "./assets/thumbnails/the-heiress/regular/small.jpg",
+        "medium": "./assets/thumbnails/the-heiress/regular/medium.jpg",
+        "large": "./assets/thumbnails/the-heiress/regular/large.jpg"
+      }
+    },
+    "year": 2021,
+    "category": "Movie",
+    "rating": "PG",
+    "isBookmarked": true,
+    "isTrending": false
+  },
+  {
+    "title": "Off the Track",
+    "thumbnail": {
+      "regular": {
+        "small": "./assets/thumbnails/off-the-track/regular/small.jpg",
+        "medium": "./assets/thumbnails/off-the-track/regular/medium.jpg",
+        "large": "./assets/thumbnails/off-the-track/regular/large.jpg"
+      }
+    },
+    "year": 2017,
+    "category": "Movie",
+    "rating": "18+",
+    "isBookmarked": true,
+    "isTrending": false
+  }
+]

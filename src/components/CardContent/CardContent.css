@@ -1,0 +1,27 @@
+.trendCard-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.trendCard-content__about {
+  width: 150px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.trendCard-content__about div {
+  height: 3px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--color-white);
+}
+.trendCard-content__about p {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 19px;
+
+  mix-blend-mode: normal;
+  opacity: 0.75;
+}

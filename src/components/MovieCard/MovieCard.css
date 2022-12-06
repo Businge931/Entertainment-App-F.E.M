@@ -1,0 +1,60 @@
+.movieCard {
+  display: inline-block;
+  width: fit-content;
+  color: var(--color-white);
+  font-family: var(--font-family);
+  position: relative;
+}
+.movieCard-image {
+  height: 150px;
+  width: 260px;
+  border-radius: 10px;
+}
+
+.trendCard_content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.trendCard_content__about {
+  width: 120px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.trendCard_content__about div {
+  height: 3px;
+  width: 3px;
+  border-radius: 3px;
+  background: var(--color-white);
+}
+.trendCard_content__about p {
+  font-weight: 300;
+  font-size: 12px;
+  line-height: 19px;
+
+  mix-blend-mode: normal;
+  opacity: 0.75;
+}
+
+.trendCard_content h4 {
+  font-size: 15px;
+  line-height: 20px;
+  font-weight: 400;
+}
+
+.trendCard_bookmark {
+  height: 28px;
+  width: 28px;
+  border-radius: 50%;
+  background: var(--color-bg_grey);
+  position: absolute;
+  top: 5%;
+  right: 5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

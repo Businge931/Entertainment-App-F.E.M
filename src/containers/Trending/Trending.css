@@ -1,0 +1,27 @@
+.trending-films {
+  display: flex;
+  overflow-x: hidden;
+  gap: 20px;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.h2 {
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: 300;
+  font-size: 20px;
+  line-height: 40px;
+  letter-spacing: -0.5px;
+  padding-top: 10px;
+
+  color: var(--color-white);
+}
+
+.trending_recommendations {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+  row-gap: 10px;
+  padding-right: 30px;
+  width: 93vw;
+}
