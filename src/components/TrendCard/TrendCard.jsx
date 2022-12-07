@@ -1,6 +1,5 @@
 import React from "react";
 import "./TrendCard.css";
-// import data from "../../utils/data.json";
 
 import {
   BsBookmark,
@@ -8,16 +7,10 @@ import {
   BsFillPlayCircleFill,
 } from "react-icons/bs";
 
-const TrendCard = ({ trendImage, year, category, rating, title }) => {
-  // const filteredData = data.filter((trend) => {
-  //   if (trend.isTrending === true) {
-  //     return trend;
-  //   }
-  // });
-
+const TrendCard = ({ image, year, category, rating, title }) => {
   return (
     <div className="tendCard">
-      <img src={trendImage} alt="trending" className="tending-image" />
+      <img src={image} alt="trending" className="tending-image" />
 
       <div className="trendCard-content">
         <div className="trendCard-content__about">

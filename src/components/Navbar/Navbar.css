@@ -10,22 +10,29 @@
   flex-direction: column;
 }
 #movie-icon {
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
 }
 .app__navbar-list {
   list-style: none;
   flex: 3;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  transition: all 0.5s ease;
 }
-.app__navbar-list li {
-  /* padding: 0.5rem; */
-  color: var(--color-white);
+
+.navbar-icons {
   display: inline-block;
+  color: var(--color-bg_grey);
 }
-.app__navbar-list li:hover {
+.navbar-icons:hover {
   color: var(--color-red);
   cursor: pointer;
+}
+
+.app__navbar-list .active {
+  color: var(--color-white);
 }
 
 .profile-picture {
@@ -50,13 +57,13 @@
     margin-bottom: 0;
   }
   .app__navbar-list {
-    display: flex;
-    gap: 20px;
+    flex-direction: row;
+    gap: 30px;
     flex: 0;
   }
 }
-@media screen and (max-width: 850px) {
+@media screen and (max-width: 550px) {
   .app__navbar-list {
-    gap: 5px;
+    gap: 20px;
   }
 }
