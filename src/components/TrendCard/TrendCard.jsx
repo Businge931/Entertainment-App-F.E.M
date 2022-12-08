@@ -1,22 +1,18 @@
 import React from "react";
 import "./TrendCard.css";
-import trendImage from "../../assets/thumbnails/bottom-gear/trending/large.jpg";
 
-import {
-  BsBookmark,
-  //   BsFillBookmarkFill,
-  BsFillPlayCircleFill,
-} from "react-icons/bs";
+import { BsBookmark, BsFillPlayCircleFill } from "react-icons/bs";
 
-const TrendCard = ({ image, year, category, rating, title }) => {
+const TrendCard = ({ image, year, category, categoryIcon, rating, title }) => {
   return (
     <div className="tendCard">
-      <img src={trendImage} alt="trending" className="tending-image" />
+      <img src={image} alt="trending" className="tending-image" />
 
       <div className="trendCard-content">
         <div className="trendCard-content__about">
           <p>{year}</p>
           <div />
+          {categoryIcon}
           <p>{category}</p>
           <div />
           <p>{rating}</p>
@@ -26,7 +22,6 @@ const TrendCard = ({ image, year, category, rating, title }) => {
 
       <div className="trendCard_bookmark">
         <BsBookmark />
-        {/* <BsFillBookmarkFill /> */}
       </div>
 
       <div className="trendCard_overlay">

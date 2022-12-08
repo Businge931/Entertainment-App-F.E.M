@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Wrapper from "../Wrapper/Wrapper";
 import "./Bookmarks.css";
+import { getData } from "../../utils/fetchData";
 import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
@@ -8,30 +9,21 @@ const Bookmarks = () => {
   const [bookmarkedMovies, setBoolmarkedMovies] = useState([]);
   const [bookmarkedTVSeries, setBoolmarkedTVSeries] = useState([]);
 
-  const getData = async () => {
-    const headers = {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-      },
-    };
-    const fetchData = await fetch("data.json", headers);
+  const getDataHandler = async () => {
+    const fetchedData = await getData();
 
-    const allData = await fetchData.json();
-
-    const bookmardeMovies = allData.filter(
+    const bookmardeMovies = fetchedData.filter(
       (movie) => movie.isBookmarked === true && movie.category === "Movie"
     );
     setBoolmarkedMovies(bookmardeMovies);
-    const bookmarkedTVSeries = allData.filter(
+    const bookmarkedTVSeries = fetchedData.filter(
       (movie) => movie.isBookmarked === true && movie.category === "TV Series"
     );
     setBoolmarkedTVSeries(bookmarkedTVSeries);
   };
 
   useEffect(() => {
-    getData();
+    getDataHandler();
   }, []);
 
   return (
@@ -44,7 +36,7 @@ const Bookmarks = () => {
             year={movie.year}
             title={movie.title}
             category={movie.category}
-            // image={movie.image}
+            image={movie.thumbnail.regular.medium}
             isBookmarked={
               movie.isBookmarked ? <BsBookmarkFill /> : <BsBookmark />
             }
@@ -61,7 +53,10 @@ const Bookmarks = () => {
             year={movie.year}
             title={movie.title}
             category={movie.category}
-            // image={movie.image}
+            image={movie.thumbnail.regular.medium}
+            isBookmarked={
+              movie.isBookmarked ? <BsBookmarkFill /> : <BsBookmark />
+            }
           />
         ))}
       </div>
