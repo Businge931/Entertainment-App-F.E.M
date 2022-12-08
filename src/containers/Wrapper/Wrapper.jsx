@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 const Wrapper = ({ heading, children }) => {
   const [searchValue, setSearchValue] = useState("");
+
   const navigate = useNavigate();
 
   const searchValueHandler = (e) => {
