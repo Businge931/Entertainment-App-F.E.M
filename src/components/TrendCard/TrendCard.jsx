@@ -1,5 +1,6 @@
 import React from "react";
 import "./TrendCard.css";
+import trendImage from "../../assets/thumbnails/bottom-gear/trending/large.jpg";
 
 import {
   BsBookmark,
@@ -10,7 +11,7 @@ import {
 const TrendCard = ({ image, year, category, rating, title }) => {
   return (
     <div className="tendCard">
-      <img src={image} alt="trending" className="tending-image" />
+      <img src={trendImage} alt="trending" className="tending-image" />
 
       <div className="trendCard-content">
         <div className="trendCard-content__about">
@@ -28,9 +29,11 @@ const TrendCard = ({ image, year, category, rating, title }) => {
         {/* <BsFillBookmarkFill /> */}
       </div>
 
-      <div className="trendCard-buttonContainer">
-        <BsFillPlayCircleFill />
-        <p>Play</p>
+      <div className="trendCard_overlay">
+        <div className="trendCard_play">
+          <BsFillPlayCircleFill />
+          <p>Play</p>
+        </div>
       </div>
     </div>
   );

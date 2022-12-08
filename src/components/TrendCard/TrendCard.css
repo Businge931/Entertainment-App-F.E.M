@@ -4,6 +4,7 @@
   font-family: var(--font-family);
   max-width: fit-content;
   display: inline-block;
+  cursor: pointer;
 }
 .trendCard-content {
   display: flex;
@@ -61,22 +62,40 @@
   top: 5%;
   right: 5%;
   cursor: pointer;
+  z-index: 100;
 
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.trendCard_bookmark:hover {
+  background: var(--color-white);
+  color: var(--color-bg_grey);
+}
 
-.trendCard-buttonContainer {
-  height: 40px;
-  width: 100px;
+.trendCard_overlay {
+  height: 180px;
+  width: 100%;
+  border-radius: 10px;
+  background: rgba(0, 0, 0, 0.438);
+
   position: absolute;
-  top: 40%;
-  left: 30%;
-  background-color: #ffffff;
-  border-radius: 20px;
-  opacity: 0.25;
+  top: 0%;
+
   display: none;
+}
+.trendCard:hover .trendCard_overlay {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.trendCard_play {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.267);
+  padding: 5px 8px;
+  border-radius: 15px;
 }
 
 @media screen and (max-width: 850px) {

@@ -36,7 +36,7 @@ const Movies = () => {
             year={movie.year}
             title={movie.title}
             category={movie.category}
-            // image={movie.image}
+            // image={movie.thumbnail.regular.medium}
             isBookmarked={
               movie.isBookmarked ? <BsBookmarkFill /> : <BsBookmark />
             }
