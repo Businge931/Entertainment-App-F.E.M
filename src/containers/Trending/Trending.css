@@ -3,8 +3,9 @@
   overflow-x: hidden;
   gap: 20px;
   -ms-overflow-style: none;
-  scrollbar-width: none;
+  position: relative;
 }
+
 .h2 {
   font-family: var(--font-family);
   font-style: normal;
@@ -24,6 +25,22 @@
   row-gap: 10px;
   padding-right: 30px;
   width: 93vw;
+}
+
+.trending-films_arrows {
+  margin: 5px auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.arrow {
+  color: var(--color-bg_grey);
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+.arrow:hover {
+  color: var(--color-white);
 }
 
 @media screen and (max-width: 850px) {

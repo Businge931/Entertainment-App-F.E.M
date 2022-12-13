@@ -1,6 +1,9 @@
 import React from "react";
+import { useSelector } from "react-redux";
+
 import "./MovieCard.css";
 import { BsFillPlayCircleFill } from "react-icons/bs";
+import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
 
 const MovieCard = ({
   image,
@@ -9,8 +12,13 @@ const MovieCard = ({
   categoryIcon,
   rating,
   title,
-  isBookmarked,
+  onmanageBookmark
 }) => {
+
+  const {isBookmarked} = useSelector((state) => state.bookmarks);
+
+
+
   return (
     <div className="movieCard">
       <img src={image} alt="greatlands" className="movieCard-image" />
@@ -27,7 +35,10 @@ const MovieCard = ({
         <h4>{title}</h4>
       </div>
 
-      <div className="movieCard_bookmark">{isBookmarked}</div>
+      <div className="movieCard_bookmark" onClick={onmanageBookmark}>
+        {isBookmarked && <BsBookmarkFill />}
+        {!isBookmarked && <BsBookmark />}
+      </div>
 
       <div className="movieCard_overlay">
         <div className="movieCard_play">

@@ -1,35 +1,60 @@
 import React, { useEffect, useState } from "react";
+import { useSelector,useDispatch } from "react-redux";
+
 import Wrapper from "../Wrapper/Wrapper";
 import "./Bookmarks.css";
-import { getData } from "../../utils/fetchData";
-import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import { bookmarkActions } from "../../store/bookmarks";
+import { fetchAllData } from "../../store/bookmarks";
+
 
 const Bookmarks = () => {
   const [bookmarkedMovies, setBoolmarkedMovies] = useState([]);
   const [bookmarkedTVSeries, setBoolmarkedTVSeries] = useState([]);
 
-  const getDataHandler = async () => {
-    const fetchedData = await getData();
+  const dispatch=useDispatch()
+  const {isLoading,allBookmarks,isBookmarked} = useSelector((state) => state.bookmarks);
+  
 
-    const bookmardeMovies = fetchedData.filter(
-      (movie) => movie.isBookmarked === true && movie.category === "Movie"
-    );
-    setBoolmarkedMovies(bookmardeMovies);
-    const bookmarkedTVSeries = fetchedData.filter(
-      (movie) => movie.isBookmarked === true && movie.category === "TV Series"
-    );
-    setBoolmarkedTVSeries(bookmarkedTVSeries);
-  };
+  
+
+  // const getDataHandler = async () => {
+  //   const fetchedData = await getData();
+
+  //   const bookmardeMovies = fetchedData.filter(
+  //     (movie) => movie.isBookmarked === true && movie.category === "Movie"
+  //   );
+  //   setBoolmarkedMovies(bookmardeMovies);
+  //   const bookmarkedTVSeries = fetchedData.filter(
+  //     (movie) => movie.isBookmarked === true && movie.category === "TV Series"
+  //   );
+  //   setBoolmarkedTVSeries(bookmarkedTVSeries);
+  // };
 
   useEffect(() => {
-    getDataHandler();
+        dispatch(fetchAllData())
   }, []);
+
+  if(isLoading){
+    return <p>Loading....</p>
+  }
 
   return (
     <Wrapper heading="Bookmarked Movies">
       <div className="movies-bookmarked">
-        {bookmarkedMovies.map((movie) => (
+        {allBookmarks.map((movie) => (
+          <MovieCard
+            key={movie.title}
+            rating={movie.rating}
+            year={movie.year}
+            title={movie.title}
+            category={movie.category}
+            image={movie.thumbnail.regular.medium}
+         
+          />
+        ))}
+
+        {/* {bookmarkedItems.map((movie) => (
           <MovieCard
             key={movie.title}
             rating={movie.rating}
@@ -41,12 +66,12 @@ const Bookmarks = () => {
               movie.isBookmarked ? <BsBookmarkFill /> : <BsBookmark />
             }
           />
-        ))}
+        ))} */}
       </div>
 
       <h2 id="h2">Bookmarked TV Series</h2>
       <div className="tvseries-bookmarked">
-        {bookmarkedTVSeries.map((movie) => (
+        {/* {bookmarkedTVSeries.map((movie) => (
           <MovieCard
             key={movie.title}
             rating={movie.rating}
@@ -58,7 +83,7 @@ const Bookmarks = () => {
               movie.isBookmarked ? <BsBookmarkFill /> : <BsBookmark />
             }
           />
-        ))}
+        ))} */}
       </div>
     </Wrapper>
   );

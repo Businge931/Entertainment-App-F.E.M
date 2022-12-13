@@ -1,18 +1,38 @@
 import React, { useEffect, useState } from "react";
+import { useSelector,useDispatch } from "react-redux";
+import { MdLocalMovies } from "react-icons/md";
+
 import Wrapper from "../Wrapper/Wrapper";
 import "./Movies.css";
 import { getData } from "../../utils/fetchData";
-import { BsBookmark, BsBookmarkFill } from "react-icons/bs";
-import { MdLocalMovies } from "react-icons/md";
-
+import { bookmarkActions } from "../../store/bookmarks";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import { fetchAllData } from "../../store/bookmarks";
+
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
 
-  const fetchMovies = async () => {
-    const fetchedData = await getData();
-    const allMovies = fetchedData.filter((movie) => movie.category === "Movie");
+  const dispatch=useDispatch()
+  const {isLoading,isBookmarked} = useSelector((state) => state.bookmarks);
+
+const manageBookmark = () => {
+    if(isBookmarked===true){
+      console.log('remove')
+      dispatch(bookmarkActions.removeBokmark())
+    }else{
+      console.log('add')
+         dispatch(
+      bookmarkActions.addBookmark()
+    );
+}
+
+  };
+
+  const fetchMovies =  () => {
+   const allData= dispatch(fetchAllData())
+    
+    const allMovies = allData.filter((movie) => movie.category === "Movie");
     setMovies(allMovies);
   };
 
@@ -33,10 +53,11 @@ const Movies = () => {
               title={movie.title}
               category={movie.category}
               image={movie.thumbnail.regular.large}
-              isBookmarked={
-                movie.isBookmarked ? <BsBookmarkFill /> : <BsBookmark />
-              }
-              categoryIcon={movie.category && <MdLocalMovies />}
+              // isBookmarked={
+              //   movie.isBookmarked ? <BsBookmarkFill /> : <BsBookmark />
+              // }
+              // categoryIcon={movie.category && <MdLocalMovies />}
+              onmanageBookmark={manageBookmark}
             />
           ))}
       </div>

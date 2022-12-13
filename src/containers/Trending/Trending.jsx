@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Wrapper from "../Wrapper/Wrapper";
 import "./Trending.css";
 import { getData } from "../../utils/fetchData";
+import { BsArrowLeftSquare, BsArrowRightSquare } from "react-icons/bs";
 import { MdLocalMovies, MdOndemandVideo } from "react-icons/md";
 import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
 import TrendCard from "../../components/TrendCard/TrendCard";
@@ -10,6 +11,8 @@ import MovieCard from "../../components/MovieCard/MovieCard";
 const Trending = () => {
   const [trending, setTrending] = useState([]);
   const [recommendations, setRecommendations] = useState([]);
+
+  const scrollRef = React.useRef();
 
   const getDataHandler = async () => {
     const fetchedData = await getData();
@@ -29,9 +32,18 @@ const Trending = () => {
     getDataHandler();
   }, []);
 
+  function scroll(direction) {
+    const { current } = scrollRef;
+    if (direction === "left") {
+      current.scrollLeft -= 300;
+    } else {
+      current.scrollLeft += 300;
+    }
+  }
+
   return (
     <Wrapper heading="Trending">
-      <div className="trending-films">
+      <div className="trending-films" ref={scrollRef}>
         {trending &&
           trending.length > 0 &&
           trending.map((trendFilm) => (
@@ -51,6 +63,10 @@ const Trending = () => {
               }
             />
           ))}
+      </div>
+      <div className="trending-films_arrows">
+        <BsArrowLeftSquare className="arrow" onClick={() => scroll("left")} />
+        <BsArrowRightSquare className="arrow" onClick={() => scroll("right")} />
       </div>
 
       <>
