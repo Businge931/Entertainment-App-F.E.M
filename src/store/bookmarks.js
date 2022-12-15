@@ -13,11 +13,7 @@ export const fetchAllData = createAsyncThunk("data/fetchAllData", async () => {
     },
   };
   const fetchData = await fetch("data.json", headers);
-
   const allData = await fetchData.json();
-
-    // console.log(allData);
-
   return allData;
 });
 
@@ -25,52 +21,47 @@ const bookmarksSlice = createSlice({
   name: "bookmark",
   initialState: {
     allBookmarks: [],
-    isBookmarked: false,
-    isLoading:false
+    // bookmarkedMovies: [],
+    // bookmarkedTVSeries: [],
+    isLoading: false,
   },
-    reducers: {
-      addBookmark(state, action) {
-        state.isBookmarked=true
-        const newFilm = action.payload;
-        const existingFilm = state.allBookmarks.find(
-          (film) => film.title === newFilm.title
-        );
-        if (!existingFilm) {
-          state.allBookmarks.push({
-            title: newFilm.title,
-            category: newFilm.category,
-            year: newFilm.year,
-            rating: newFilm.rating,
-            image: newFilm.image,
-          });
-        }
-      },
-      removeBokmark(state, action) {
-        state.isBookmarked=false
-        const title = action.payload;
-        const existingFilm = state.allBookmarks.find(
-          (film) => film.title === title
-        );
-        if (existingFilm) {
-          state.allBookmarks = state.allBookmarks.filter(
-            (bookmark) => bookmark.title !== title
-          );
-        }
-      },
+  reducers: {
+    addBookmark(state, { payload }) {
+      const existingFilm =
+        state.allBookmarks.findIndex((film) => film.title === payload.title) !==
+        -1;
+
+      if (!existingFilm) {
+        state.allBookmarks.push(payload);
+      }
     },
-  extraReducers:builder=> {
+
+    removeBookmark(state, { payload }) {
+      const existingFilm =
+        state.allBookmarks.findIndex((film) => film.title === payload.title) !==
+        -1;
+
+      if (existingFilm) {
+        const allBookmarksCopy = [...state.allBookmarks];
+        const filteredBookmarks = allBookmarksCopy.filter(
+          (bookmark) => bookmark.title !== payload.title
+        );
+        state.allBookmarks = [...filteredBookmarks];
+      }
+    },
+  },
+  extraReducers: (builder) => {
     builder
-    .addCase(fetchAllData.pending,(state,action)=>{
-      state.isBookmarked=false
-      state.isLoading=true
-    })
-    .addCase(fetchAllData.fulfilled,(state,action)=>{
-     state.isLoading=false
-     state.allBookmarks=action.payload
-    })
-    .addCase(fetchAllData.rejected,(state)=>{
-      state.isLoading=false
-    })
+      .addCase(fetchAllData.pending, (state, action) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchAllData.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.allBookmarks = action.payload;
+      })
+      .addCase(fetchAllData.rejected, (state) => {
+        state.isLoading = false;
+      });
   },
 });
 
@@ -78,6 +69,11 @@ const store = configureStore({
   reducer: { bookmarks: bookmarksSlice.reducer },
 });
 
-export const bookmarkActions = bookmarksSlice.actions;
+export const {
+  addBookmark,
+  removeBookmark,
+  addBookmarkTVSeries,
+  addBookmarkMovie,
+} = bookmarksSlice.actions;
 
 export default store;

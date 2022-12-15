@@ -4,7 +4,6 @@ import "./Trending.css";
 import { getData } from "../../utils/fetchData";
 import { BsArrowLeftSquare, BsArrowRightSquare } from "react-icons/bs";
 import { MdLocalMovies, MdOndemandVideo } from "react-icons/md";
-import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
 import TrendCard from "../../components/TrendCard/TrendCard";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
@@ -82,16 +81,7 @@ const Trending = () => {
                 category={item.category}
                 title={item.title}
                 image={item.thumbnail.regular.medium}
-                isBookmarked={
-                  item.isBookmarked ? <BsBookmarkFill /> : <BsBookmark />
-                }
-                categoryIcon={
-                  item.category === "Movie" ? (
-                    <MdLocalMovies />
-                  ) : item.category === "TV Series" ? (
-                    <MdOndemandVideo />
-                  ) : null
-                }
+                movie={item}
               />
             ))}
         </div>

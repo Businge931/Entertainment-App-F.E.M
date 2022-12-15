@@ -13,7 +13,7 @@ function App() {
       <Route path="/movies" element={<Movies />} />
       <Route path="/tvseries" element={<TVSeries />} />
       <Route path="/bookmarks" element={<Bookmarks />} />
-      <Route path="/search?:searchTerm" element={<SearchFeed />} />
+      <Route path="/search/:searchTerm" element={<SearchFeed />} />
     </Routes>
   );
 }

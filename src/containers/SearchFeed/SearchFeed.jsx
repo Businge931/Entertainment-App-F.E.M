@@ -16,15 +16,17 @@ const SearchFeed = () => {
 
     console.log(data);
 
-    // data.filter((search) => {
-    //   if (searchTerm === "") {
-    //     return search;
-    //   } else if (
-    //     search.title.toLowerCase().includes(searchTerm.toLowerCase())
-    //   ) {
-    //     return search;
-    //   }
-    // }).map(searchResult=><MovieCard/>);
+    data
+      .filter((search) => {
+        if (searchTerm === "") {
+          return search;
+        } else if (
+          search.title.toLowerCase().includes(searchTerm.toLowerCase())
+        ) {
+          return search;
+        }
+      })
+      .map((searchResult) => <MovieCard />);
 
     setData(data);
   }

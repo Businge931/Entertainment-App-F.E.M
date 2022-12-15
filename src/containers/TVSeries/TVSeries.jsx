@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import Wrapper from "../Wrapper/Wrapper";
 import "./TVSeries.css";
 import { getData } from "../../utils/fetchData";
-import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
 import MovieCard from "../../components/MovieCard/MovieCard";
 
 const TVSeries = () => {
@@ -33,9 +32,7 @@ const TVSeries = () => {
               title={movie.title}
               category={movie.category}
               image={movie.thumbnail.regular.medium}
-              isBookmarked={
-                movie.isBookmarked ? <BsBookmarkFill /> : <BsBookmark />
-              }
+              movie={movie}
             />
           ))}
       </div>
