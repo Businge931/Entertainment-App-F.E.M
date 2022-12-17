@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import "./MovieCard.css";
 import { BsFillPlayCircleFill } from "react-icons/bs";
 import { BsBookmarkFill, BsBookmark } from "react-icons/bs";
-import { addBookmark, removeBookmark } from "../../store/bookmarks";
+import { addBookmark, removeBookmark } from "../../store/slices/bookmarks";
 
 const MovieCard = ({
   image,

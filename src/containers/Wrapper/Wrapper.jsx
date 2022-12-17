@@ -1,38 +1,38 @@
-import React, { useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import "./Wrapper.css";
 import { FiSearch } from "react-icons/fi";
-import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { setSearchTerm } from "../../store/slices/searchSlice";
 
 const Wrapper = ({ heading, children }) => {
-  const [searchValue, setSearchValue] = useState("");
+  const searchTerm = useSelector((state) => state.search.searchTerm);
 
-  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const searchValueHandler = (e) => {
-    e.preventDefault();
-
-    if (searchValue) {
-      navigate(`/search/:${searchValue}`);
-    }
+    dispatch(setSearchTerm(e.target.value));
   };
 
   return (
     <div className="wrapper">
       <Navbar />
       <div className="wrapper-content">
-        <form onSubmit={searchValueHandler} className="wrapper-form">
+        <form className="wrapper-form">
           <FiSearch size={26} color="#fff" />
           <input
             placeholder="Search for movies or TV series"
-            onChange={(e) => {
-              setSearchValue(e.target.value);
-            }}
-            value={searchValue}
+            onChange={searchValueHandler}
+            value={searchTerm}
           />
         </form>
 
-        <h1>{heading}</h1>
+        {searchTerm ? (
+          <h1>
+            Search results for: <span className="searchTerm">{searchTerm}</span>
+          </h1>
+        ) : (
+          <h1>{heading}</h1>
+        )}
 
         {children}
       </div>

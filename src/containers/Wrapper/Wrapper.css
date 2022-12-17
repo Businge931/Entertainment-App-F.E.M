@@ -52,6 +52,9 @@
   padding: 1rem 0;
   letter-spacing: 0.5px;
 }
+.searchTerm {
+  color: var(--color-red);
+}
 
 @media screen and (max-width: 850px) {
   .wrapper {

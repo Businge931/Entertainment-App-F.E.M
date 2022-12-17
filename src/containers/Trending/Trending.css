@@ -18,7 +18,8 @@
   color: var(--color-white);
 }
 
-.trending_recommendations {
+.trending_recommendations,
+.search-results {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   /* grid-template-rows: repeat(6, 1fr); */
