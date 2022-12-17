@@ -7,6 +7,7 @@ import "./TVSeries.css";
 import { getData } from "../../utils/utilFunctions";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import { searchTermHandler } from "../../utils/utilFunctions";
+import { MdLocalMovies, MdOndemandVideo } from "react-icons/md";
 
 const TVSeries = () => {
   const [series, setSeries] = useState([]);
@@ -54,6 +55,13 @@ const TVSeries = () => {
               title={item.title}
               image={item.thumbnail.regular.medium}
               movie={item}
+              categoryIcon={
+                item.category === "Movie" ? (
+                  <MdLocalMovies />
+                ) : item.category === "TV Series" ? (
+                  <MdOndemandVideo />
+                ) : null
+              }
             />
           ))}
       </div>
@@ -71,6 +79,13 @@ const TVSeries = () => {
                 category={movie.category}
                 image={movie.thumbnail.regular.medium}
                 movie={movie}
+                categoryIcon={
+                  movie.category === "Movie" ? (
+                    <MdLocalMovies />
+                  ) : movie.category === "TV Series" ? (
+                    <MdOndemandVideo />
+                  ) : null
+                }
               />
             ))}
         </div>

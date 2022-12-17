@@ -78,6 +78,13 @@ const Trending = () => {
               title={item.title}
               image={item.thumbnail.regular.medium}
               movie={item}
+              categoryIcon={
+                item.category === "Movie" ? (
+                  <MdLocalMovies />
+                ) : item.category === "TV Series" ? (
+                  <MdOndemandVideo />
+                ) : null
+              }
             />
           ))}
       </div>
@@ -133,6 +140,13 @@ const Trending = () => {
                   title={item.title}
                   image={item.thumbnail.regular.medium}
                   movie={item}
+                  categoryIcon={
+                    item.category === "Movie" ? (
+                      <MdLocalMovies />
+                    ) : item.category === "TV Series" ? (
+                      <MdOndemandVideo />
+                    ) : null
+                  }
                 />
               ))}
           </div>

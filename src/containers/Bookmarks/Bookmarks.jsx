@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import Wrapper from "../Wrapper/Wrapper";
 import "./Bookmarks.css";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import { MdLocalMovies, MdOndemandVideo } from "react-icons/md";
 
 const Bookmarks = () => {
   const { isLoading, allBookmarks } = useSelector((state) => state.bookmarks);
@@ -22,6 +23,13 @@ const Bookmarks = () => {
             title={movie.title}
             category={movie.category}
             image={movie.thumbnail.regular.medium}
+            categoryIcon={
+              movie.category === "Movie" ? (
+                <MdLocalMovies />
+              ) : movie.category === "TV Series" ? (
+                <MdOndemandVideo />
+              ) : null
+            }
           />
         ))}
       </div>

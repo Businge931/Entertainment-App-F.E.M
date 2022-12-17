@@ -6,6 +6,7 @@ import Wrapper from "../Wrapper/Wrapper";
 import { getData } from "../../utils/utilFunctions";
 import "./Movies.css";
 import MovieCard from "../../components/MovieCard/MovieCard";
+import { MdLocalMovies, MdOndemandVideo } from "react-icons/md";
 
 const Movies = () => {
   const [movies, setMovies] = useState([]);
@@ -70,6 +71,8 @@ const Movies = () => {
           ))}
       </div>
 
+      {}
+
       {searchResults.length === 0 && (
         <div className="movies-container">
           {movies.map((movie) => (
@@ -81,6 +84,13 @@ const Movies = () => {
               category={movie.category}
               movie={movie}
               image={movie.thumbnail.regular.large}
+              categoryIcon={
+                movie.category === "Movie" ? (
+                  <MdLocalMovies />
+                ) : movie.category === "TV Series" ? (
+                  <MdOndemandVideo />
+                ) : null
+              }
             />
           ))}
         </div>
